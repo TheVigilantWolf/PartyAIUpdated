@@ -1,0 +1,1 @@
+<MaskedTextureWidget DataSource="{Banner_9}"  WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="25" SuggestedHeight="32" HorizontalAlignment="Right" VerticalAlignment="Top" PositionYOffset="-2" Brush="Flat.Tuple.Banner.Small.Hero" AdditionalArgs="@AdditionalArgs" ImageId="@Id" ImageTypeCode="@ImageTypeCode" />

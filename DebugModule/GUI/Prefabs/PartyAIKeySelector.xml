@@ -1,0 +1,34 @@
+<Prefab>
+  <Constants>
+  </Constants>
+  <Parameters>
+    <Parameter Name="DataSource" DefaultValue="" />
+  </Parameters>
+  <Window>
+	<ListPanel DataSource="*DataSource" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" MarginLeft="13" StackLayout.LayoutMethod="HorizontalLeftToRight">
+		<Children>
+			<!-- Modifier Key Text -->
+			<TextWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="120" SuggestedHeight="34" Brush="Clan.Stat.Name.Text" VerticalAlignment="Center" Brush.TextHorizontalAlignment="Left" IsVisible="@HasModifier" Text="@ModifierKeyText" />
+			
+			<!-- Edit Modifier Key Text -->
+			<ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="30" SuggestedHeight="30" VerticalAlignment="Center" MarginLeft="8" UpdateChildrenStates="true" IsVisible="@HasModifier" Command.Click='EditModifierKey'>
+			  <Children>
+				<BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="34" SuggestedHeight="34" HorizontalAlignment="Right" VerticalAlignment="Center" Brush="PartyAI.Menu.EditButton" />
+			  </Children>
+			</ButtonWidget>
+			
+			<TextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" Brush="Clan.Stat.Name.Text" VerticalAlignment="Center" Brush.TextHorizontalAlignment="Center" IsVisible="@HasModifier" Text=" + " />
+			
+			<!-- Key Text -->
+			<TextWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="120" SuggestedHeight="34" Brush="Clan.Stat.Name.Text" VerticalAlignment="Center" Brush.TextHorizontalAlignment="Left" Text="@KeyText" />
+			
+			<!-- Edit Key Text -->
+			<ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="30" SuggestedHeight="30" VerticalAlignment="Center" MarginLeft="8" UpdateChildrenStates="true" Command.Click='EditKey'>
+			  <Children>
+				<BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="34" SuggestedHeight="34" HorizontalAlignment="Right" VerticalAlignment="Center" Brush="PartyAI.Menu.EditButton" />
+			  </Children>
+			</ButtonWidget>
+		</Children>
+	</ListPanel>
+  </Window>
+</Prefab>

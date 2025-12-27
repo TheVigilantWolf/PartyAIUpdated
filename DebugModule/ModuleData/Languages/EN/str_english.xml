@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+    <tags>
+        <tag language="English"/>
+    </tags>
+    <strings>
+	<string id="PAIZZ1tGdbA" text="No Active Order"/>
+	<string id="PAIdTWGYLu0" text="Staying in {TARGET_SETTLEMENT}"/>
+	<string id="PAI0oBFsSJO" text="Patrolling Clan Territory"/>
+	<string id="PAIImuFNGIe" text="Recruiting Troops"/>
+	<string id="PAIzp4R8TTM" text="Visiting {SETTLEMENT}"/>
+	<string id="PAISXYCwfO9" text="No orders in queue"/>
+	<string id="PAIpc5Yu18Z" text="Patrol around {TARGET_SETTLEMENT}"/>
+	<string id="PAIPMS0nSSq" text="Besiege {TARGET_SETTLEMENT}"/>
+	<string id="PAITOricrPO" text="Defend {TARGET_SETTLEMENT}"/>
+	<string id="PAIj66iTjmT" text="Stay in {TARGET_SETTLEMENT}"/>
+	<string id="PAINt8jD9tc" text="Follow {TARGET_PARTY}"/>
+	<string id="PAIDycETWvm" text="Attack {TARGET_SETTLEMENT}"/>
+	<string id="PAIgvZTEG1V" text="Patrol Clan Territory"/>
+	<string id="PAIhBXucHBM" text="Recruit Troops"/>
+	<string id="PAIRyxa5pnP" text="Visit {SETTLEMENT}"/>
+	<string id="PAIEUwVpMPm" text="Thank you for using Party AI Controls! To access the configuration panel, press {KEYBIND}!"/>
+	<string id="PAIFHytp3D7" text="Choose which parties to directly command"/>
+	<string id="PAIRzSgh49H" text="Parties must be manageable and in visual range to appear here."/>
+	<string id="PAIykz3Pc1F" text="Edit Default Settings"/>
+	<string id="PAIOMxOAsTY" text="Clan Parties"/>
+	<string id="PAId8ZsX3ID" text="Clan Caravans"/>
+	<string id="PAIKf5y8Z4K" text="Clan Garrisons"/>
+	<string id="PAIObdiWWBa" text="Kingdom Parties"/>
+	<string id="PAIJkUlgNUw" text="Kingdom Garrisons"/>
+	<string id="PAI4eHNvDEM" text="Order Queue for {HERO}'s party"/>
+	<string id="PAI9PHY91SP" text="Add Order"/>
+	<string id="PAIl7GEAaaD" text="Clear Queue"/>
+	<string id="PAIv8ekJ4gs" text="Are you sure?"/>
+	<string id="PAIYkuWNX8E" text="Manage garrison parties for your clan."/>
+	<string id="PAIy0nVMLXY" text="If you are the ruler of your kingdom, manage garrisons for the entire kingdom instead of just your clan."/>
+	<string id="PAIRZkSlIxH" text="Cannot manage garrison parties without allowing troop conversion."/>
+	<string id="PAIWV53ONlQ" text="Edit Mod Options"/>
+	<string id="PAIt2WLwtca" text="Party Limit"/>
+	<string id="PAIsBxGgiYZ" text="Leader Roster"/>
+	<string id="PAIhmt3dhI6" text="For Lords"/>
+	<string id="PAIlflf9B0n" text="Allows troop conversion for lord parties. This setting is no longer required to manage lord party troop composition. Use the recruitment order to make sure your parties recruit the troops you want."/>
+	<string id="PAIIraDmoi5" text="For Caravans"/>
+	<string id="PAIr7ucbc6X" text="Allows troop conversion for caravans. At present this setting is necessary to manage caravan troop composition."/>
+	<string id="PAIxcNer6Hm" text="For Garrisons"/>
+	<string id="PAIc99C3VmP" text="Allows troop conversion for garrisons. At present this setting is necessary to manage garrison troop composition."/>
+	<string id="PAIFQeuWjXA" text="Clan Garrisons"/>
+	<string id="PAI68ZMWYZS" text="Caravans"/>
+	<string id="PAIlZXTnEd8" text="Manage caravans for your clan. Caravan settings are saved separately from regular party settings, so you can have heroes with both. In order to manage their troops properly, the mod needs to have troop conversion enabled for caravans."/>
+	<string id="PAIeJ3goSqx" text="Kingdom Parties"/>
+	<string id="PAI8l5Lt9g3" text="If you are the ruler of your kingdom, manage parties for the entire kingdom instead of just your clan."/>
+	<string id="PAIGJEcA4MB" text="Kingdom Garrisons"/>
+	<string id="PAI9BPfqnUx" text="Aggressive Patrols"/>
+	<string id="PAIFxvrVYlD" text="If enabled, all AI patrols will attack any parties that come in range if they can catch them. Amends the 'Patrolling around X' AI behavior to include searching for targets--normally they wander aimlessly and don't attack anything. This is applied across the board, so you may not want to enable it until you're in the vassal/kingdom stage so there'll be more bandits."/>
+	<string id="PAIbSXqbr08" text="AI Patrol Clan Territory"/>
+	<string id="PAIj0xo4vLJ" text="AI will fallback to patrolling its clan territory when there is nothing else to do. Applies to any lord party not managed by the mod."/>
+	<string id="PAIsUcGJNnV" text="Auto Create Clan Parties"/>
+	<string id="PAIurMNhxmp" text="Automatically create clan parties for heroes that are available. Parties will not be created for heroes that are in your party."/>
+	<string id="PAIQNbMherW" text="Keybind to open this control panel. If you lock yourself out with a broken key combo, use partyai.open in the console to get back here and fix it."/>
+	<string id="PAIdjKjbD9Y" text="Keybind to choose which parties to directly command. Press ALT+X (default) to choose nearby parties, then hold ALT (default) to order them around."/>
+	<string id="PAIY9zrtsqV" text="Keybind to command nearby parties. Press ALT+X (default) to choose nearby parties, then hold ALT (default) to order them around."/>
+	<string id="PAIBKfwhLn2" text="Heroes that we are allowed to create parties for. If blank, all available heroes will be considered."/>
+	<string id="PAIi4vuS6na" text="Limits the maximum amount of clan parties that will be auto created."/>
+	<string id="PAIQNUqwt4C" text="Edit"/>
+	<string id="PAIn0vtnqMG" text="Allow troops to be automatically converted to the ones in your assigned party template. Cost is adjusted if needed."/>
+	<string id="PAIdJOXgi68" text="Enable or disable management of specific types of parties. You can change these at any time. If you disable a category that was previously managed, your settings for those parties will be ignored until you enable management again."/>
+	<string id="PAIrJoL4fjj" text="Troop Conversion"/>
+	<string id="PAI2Kzocn92" text="Management"/>
+	<string id="PAIwNqKC63z" text="AI Tweaks"/>
+	<string id="PAIKbIc509P" text="Keybinds"/>
+	<string id="PAIuVpJ2Fxq" text=" - Per Day - "/>
+	<string id="PAIdNxjNCZ8" text="Control Panel: "/>
+	<string id="PAIMPBJJFE1" text="Choose Parties: "/>
+	<string id="PAIYaTRiKbo" text="Command Parties: "/>
+	<string id="PAImiSXBh3N" text="Amount of troops to convert to a party template per day. This value is per-party and applies to all managed parties, caravans, and garrisons. Helps protect against large spikes in cost from changing templates, and just makes it feel a little less awkward than magically converting 300 troops at once."/>
+	<string id="PAILiYi3RTj" text="All"/>
+	<string id="PAIcd2NB574" text="Troops Converted Per Day"/>
+	<string id="PAIEADvfPTN" text="Enter 0 for unlimited."/>
+	<string id="PAI84jzPSvb" text="Amount must be a number"/>
+	<string id="PAIPRrfz8d9" text="Amount must be between 0 and 100000"/>
+	<string id="PAIAbEyy75G" text="Select which heroes to automatically create parties for"/>
+	<string id="PAIDWLDk2e4" text="PartyAIControls: You've changed your control panel keybind. If you've accidentally locked yourself out, run partyai.open in the console to get back into the control panel."/>
+	<string id="PAgaRahFHeV" text="Edit Party Composition"/>
+	<string id="PAIqJ0819Nl" text="Show all heroes that can lead parties. Useful for assigning settings for any potential hero that might be a leader."/>
+	<string id="PAIuPlFS64X" text="Sort"/>
+	<string id="PAIY2tmN6Vq" text="Copy settings from one party to another. Select the checkbox next to a party and press CTRL-C or this button."/>
+	<string id="PAIlmndQPWI" text="Paste settings from one party to another. After copying, select the checkboxes next to all parties you want to paste to and press CTRL-V or this button."/>
+	<string id="PAImg9cMpVB" text="Cancel Copy/Paste operation"/>
+	<string id="PAIQlzQNwtn" text="Select All"/>
+	<string id="PAIe2AmH8ga" text="Party AI Controls"/>
+	<string id="PAIVTBDYD5s" text="Create Template"/>
+	<string id="PAR1D0VvXKZ" text="Delete Template"/>
+	<string id="PAIwK2enPSp" text="Fine Tune Template"/>
+	<string id="PAIzjCcuvQw" text="Select which troops along the upgrade paths you've chosen to be included in the party template. The topmost troop in the list will be the portrait next to the template."/>
+	<string id="PAI3Bf9LMMe" text="[Unused for now...]"/>
+	<string id="PAIyBVEFgXu" text="Mod Options"/>
+	<string id="PAI34RDUeMT" text="Default Settings"/>
+	<string id="PAIlKT8heH9" text="Show All Heroes"/>
+	<string id="PAI5D5Ofcoo" text="No upgrade path between {CHARACTER} and {TARGET}"/>
+	<string id="PAI91kcf3yB" text="Must select at least one troop that upgrades to {CHARACTER}"/>
+	<string id="PAIAAm1PQy1" text="Not enough troops in template."/>
+	<string id="PAIekKoDXkq" text="Select a Key"/>
+	<string id="PAIC76hjKpD" text="Edit Caravan Options for {HERO}'s party"/>
+	<string id="PAI2mEbIPHQ" text="Edit Caravan Options"/>
+	<string id="PAI7L3x9T3p" text="Filter Trading Settlements"/>
+	<string id="PAIRrqrDxYm" text="The caravan will only visit settlements in this list."/>
+	<string id="PAIjkqd24XT" text=" - Selected: "/>
+	<string id="PAIn4UJJg3a" text="Max Troop Tier"/>
+	<string id="PAIKeTFa2PX" text="Maximum troop tier to upgrade troops to. If you lower this setting while there are higher tier troops in the party, they will be downgraded."/>
+	<string id="PAIr1WS36dp" text="Settlements to Visit"/>
+	<string id="PAImajjVs8d" text="north"/>
+	<string id="PAISzVDwcWu" text="south"/>
+	<string id="PAIHQQPyo2M" text="east"/>
+	<string id="PAIWGp1Ti1N" text="west"/>
+	<string id="PAI7v81Hher" text="Currently {DIRECTION} of you."/>
+	<string id="PAI5VM6usUh" text="Edit Garrison Options for {SETTLEMENT}"/>
+	<string id="PAIy61wxVLV" text="Edit Garrison Options"/>
+	<string id="PAITKllkp3Y" text=" of max party size"/>
+	<string id="PAIANrHs1Zb" text="Edit Party Options for {HERO}'s party"/>
+	<string id="PAIgiGgAlAm" text="Edit Party Options"/>
+	<string id="PAClaZBMEprx" text="May Join Armies"/>
+	<string id="PAD5Oih6uaW" text="Allow this party to join kingdom armies. Even with this setting disabled the party will be allowed to join your army."/>
+	<string id="PAhInSCxPlc" text="May Donate Troops To Garrisons"/>
+	<string id="PAIYcYomRnV" text="Allow this party to donate troops to friendly garrisons."/>
+	<string id="PAIJB8EuhJN" text="May Besiege"/>
+	<string id="PAIHANhrppA" text="Allow this party to besiege towns and castles. If disabled, parties will leave armies that are sieging, refunding the influence to the army leader."/>
+	<string id="PArB6kGmInk" text="May Raid Villages"/>
+	<string id="PAIG8Ela5BJ" text="Allow this party to raid hostile villages. If disabled, parties will leave armies that are raiding, refunding the influence to the army leader."/>
+	<string id="PAIv3zQDvLn" text="May Take Lords Prisoner"/>
+	<string id="PAIgE8T3Qxh" text="Allow this party to take enemy lords prisoner after battle. If disabled, parties will release captured lords."/>
+	<string id="PAIBMzCXm1l" text="May Recruit Troops"/>
+	<string id="PAIhSoz6d1X" text="Allow this party to recruit troops. If you disable this setting, you will have to supply the party with troops manually. If you do not, you can expect the AI to behave stupidly."/>
+	<string id="PAIWXzJxqgi" text="Buy Horses"/>
+	<string id="PAIK3xNilPb" text="Buy enough horses to mount your troops on foot in order to increase movement speed. If you set the budget to zero, this will still prevent unncessary selling of horses. Please note that some horse types do not count towards the speed bonus, like Sumpter Horses in native. This feature won't treat a horse as providing a speed bonus unless the game treats it that way in native or whatever overhaul you play."/>
+	<string id="PAIpTraw5lq" text="Recruit when below "/>
+	<string id="PAIMah8wd6z" text="Automatically set an order to go recruiting when party is below X% of it's max party size. The order will only be added if there is not an existing order to recruit troops in the queue and you are not directly commanding the party."/>
+	<string id="PAID8JkoxK0" text=" - Budget: "/>
+	<string id="PAIcyDMxg8t" text="Horse purchase budget per day."/>
+	<string id="PAIqGqAFj9G" text="Fallback Order: "/>
+	<string id="PAIDJ1aQnLC" text="Order to issue when the party is not in an army and has no current order."/>
+	<string id="PAIn8Kp9KPp" text="Enter Automatic Recruitment Percentage"/>
+	<string id="PAIdpT9SuVN" text="Party will go on a recruitment run when under this percentage of its maximum troops."/>
+	<string id="PAIXIv9UgAt" text="Change"/>
+	<string id="PAIIAZIrPw0" text="These values are not useful for caravans unless you enable troop conversion in the mod options."/>
+	<string id="PAIQAHEYKZ2" text="Templates are not useful for caravans unless you enable troop conversion in the mod options."/>
+	<string id="PATZD6SvrZr" text="No Template"/>
+	<string id="PAI8qha4sZa" text="This hero is an army leader. Orders given to their party will apply to their entire army."/>
+	<string id="PAIQnwbXcqc" text="Options"/>
+	<string id="PAIIqVpFFAi" text="Max"/>
+	<string id="PAI4pLNfNa1" text="Asc"/>
+	<string id="PAIdc8T9Up8" text="Desc"/>
+	<string id="PAIrkbpwijb" text="Template"/>
+	<string id="PAITCqVHXaz" text="Select which template to fine tune"/>
+	<string id="PAI6hwc2LSt" text="Select a new template for {LEADER}'s Party"/>
+	<string id="PAI1HObVpcg" text="Select a new template for {SETTLEMENT}'s Garrison"/>
+	<string id="PAI9HyjJ7ss" text="Select a new template"/>
+	<string id="PAIZScpdz8d" text="Select a target"/>
+	<string id="PAIb2F6Hyfs" text="Patrol Clan Territory"/>
+	<string id="PAIUq8Q1n8k" text="Choose which type of order to add"/>
+	<string id="PAIaOu88dqT" text="Patrol An Area"/>
+	<string id="PAIIL6JG6Na" text="Visit A Settlement"/>
+	<string id="PAI1Et6heEa" text="Escort A Party"/>
+	<string id="PAIyzzBSM4P" text="Recruit"/>
+	<string id="PAIHJFAtbk8" text="Order the party leader to only focus on recruiting troops. If they have an assigned troop template, they will only visit settlements that offer those troops. Keep in mind these settlements may be far away."/>
+	<string id="PAIOzsG1s1J" text="Stay In A Settlement"/>
+	<string id="PAIPQxGUfhd" text="Patrol an area around the target settlement. The party will visit villages and towns to restock its troops and supplies. Bandits and other enemies will be chased down if the party leader believes they can be caught. The party will defend villages and castles/towns within its patrol radius from raids and sieges."/>
+	<string id="PAIljAEpAKF" text="Visit a settlement but don't stay there."/>
+	<string id="PAIEI3gTLMP" text="Escort a party"/>
+	<string id="PAIVeQlQhCC" text="Stay in the settlement. Will not defend the settlement if it is under siege and the party is outside the walls."/>
+	<string id="PAIgXDbzpdD" text="Besiege A Settlement"/>
+	<string id="PAIzxQXNul8" text="The party or army will besiege the target settlement. The order will be cleared upon capturing the city or by the attacking army being defeated."/>
+	<string id="PAIgNGL6W5j" text="Defend A Settlement"/>
+	<string id="PAITZmUFJSB" text="Stay in the garrison of the settlement. The party may make occassional visits to other settlements for food if there is not enough food in the settlement to buy."/>
+	<string id="PAIEv0gLuYi" text="Select which settings you would like to copy."/>
+	<string id="PAIZZEi6e9F" text="You may select more than one option."/>
+	<string id="PAI42PrfM04" text="Party Composition"/>
+	<string id="PAI6XKZojTt" text="Order"/>
+	<string id="PAIdpg5Dset" text="Select which parties to copy settings to"/>
+	<string id="PAI0HrENRV2" text="Select which template to delete"/>
+	<string id="PAIFofWXL3f" text="DELETE"/>
+	<string id="PAGIUuSgSnB" text="Are you sure you want to delete the template {TEMPLATE}?"/>
+	<string id="PAIlfXfoNTy" text="Select which template to view"/>
+	<string id="PABrUnTTy9r" text="Troops in Template '{TEMPLATE}'"/>
+	<string id="PAoNJx6fAYq" text="View Template"/>
+	<string id="PAZ8yCnPyxh" text="Create New Troop Template"/>
+	<string id="PAO0HGBsJZd" text="Enter a name for your new party troop template."/>
+	<string id="PAHxbYi6Awy" text="Minimum {MIN} characters"/>
+	<string id="PAbGk5vWaqM" text="Maximum {MAX} characters"/>
+	<string id="PAuu16DcbWX" text="There is already a template with that name."/>
+	<string id="PAirAdxXSc5" text="Eligible Troops"/>
+	<string id="PA3a9D3vJpb" text="Chosen Troops"/>
+	<string id="PAH9JlPJqJC" text="Create New Template"/>
+	<string id="PAYjAC3mQzN" text="Create"/>
+	<string id="PAISIjwQiXw" text="Copy To"/>
+	<string id="PAS8COe7Ysl" text="Set"/>
+	<string id="PAQVXq6izAW" text="DEL"/>
+	<string id="PAkCYmU0Qtl" text="View"/>
+	<string id="PAHiRSTCnkv" text="Edit Party Composition"/>
+	<string id="PAhmBRjnrwV" text="Troop Template: {NAME}"/>
+	<string id="PA08v16flk8" text="Show"/>
+	<string id="PA635e8pPkz" text="Hide"/>
+	<string id="PAIxKOXkgPU" text="Select All"/>
+	<string id="PAIc1pTxSOA" text="{NAME} is out of range to be commanded directly"/>
+	<string id="PAIoLtvzpKU" text="PartyAIControls: Feature to enable armies without being a Vassal is not compatible with BannerKings."/>
+	<string id="PAIJPxU5978" text="{HERO} has created a new party near {SETTLEMENT}"/>
+	<string id="PAIOEWao2aI" text="{PARTY} is no longer {ORDER} because they were called to {ARMY}"/>
+	<string id="PAIw38SHHlH" text="{PARTY} is no longer {ORDER} because their food supplies ran low."/>
+	<string id="PAIxfQuD90U" text="Let me inspect your party's inventory."/>
+	<string id="PAI5m8VhtcI" text="Percentage must be greater than zero"/>
+	<string id="PAI9084MrFx" text="Percentage must be less than 99"/>
+	<string id="PAI5AWANWod" text="You must enter a number"/>
+	<string id="PAIxE5LIta2" text="Fine Tune Template"/>
+</strings>
+</base>

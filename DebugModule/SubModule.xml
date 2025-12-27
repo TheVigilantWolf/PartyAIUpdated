@@ -1,0 +1,28 @@
+﻿<Module>
+  <Name value="Party AI Controls"/>
+  <Id value="PartyAIControls"/>
+  <Version value="v1.3.11.1"/>
+  <SingleplayerModule value="true"/>
+  <MultiplayerModule value="false"/>
+  <DependedModules>
+    <DependedModule Id="Native" DependentVersion="v1.3.11" Optional="false"/>
+    <DependedModule Id="SandBoxCore" DependentVersion="v1.3.11" Optional="false"/>
+    <DependedModule Id="Sandbox" DependentVersion="v1.3.11" Optional="false"/>
+    <DependedModule Id="StoryMode" DependentVersion="v1.3.11" Optional="false"/>
+	<DependedModule Id="Bannerlord.Harmony" Optional="false"/>
+	<DependedModule Id="Bannerlord.UIExtenderEx" Optional="false" />
+  </DependedModules>
+  <ModuleType value="Community" />
+  <SubModules>
+    <SubModule>
+      <Name value="PartyAIControls"/>
+      <DLLName value="PartyAIUpdatedRebinds.dll"/>
+      <SubModuleClassType value="PartyAIControls.SubModule"/>
+      <Tags>
+        <Tag key="DedicatedServerType" value="none" />
+        <Tag key="IsNoRenderModeElement" value="false" />
+      </Tags>
+    </SubModule>
+  </SubModules>
+  <Xmls/>
+</Module>

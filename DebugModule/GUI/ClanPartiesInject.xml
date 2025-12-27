@@ -1,0 +1,82 @@
+<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" VerticalAlignment="Top" SuggestedWidth="465" SuggestedHeight="800" DoNotAcceptEvents="false" IsVisible="@ShowPartyAIControls">
+	<Children>
+		<!-- Options Toggles -->
+		<Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" IsVisible="@IsEnabled">
+			<Children>
+				<ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="60" SuggestedHeight="30" VerticalAlignment="Top"  Brush='ButtonBrush2' MarginLeft="30" MarginTop="-2" HorizontalAlignment="Left" Command.Click='EditPartyOptions'>
+				  <Children>
+					<TextWidget WidthSizePolicy='StretchToParent' HeightSizePolicy='StretchToParent' Brush='Kingdom.GeneralButtons.Text' Text='@OptionsText' />
+				  </Children>
+				</ButtonWidget>
+
+				<!-- Party Templates -->
+				<ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Bottom" MarginBottom="80" StackLayout.LayoutMethod="VerticalBottomToTop">
+					<Children>
+						<ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="30" HorizontalAlignment="Center" VerticalAlignment="Top" MarginTop="10" IsVisible="@ShowOrder" StackLayout.LayoutMethod="HorizontalLeftToRight">
+							<Children>
+								<TextWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="Fixed" SuggestedWidth="300" DoNotAcceptEvents="true" Brush="Clan.Stat.Name.Text" VerticalAlignment="Top" HorizontalAlignment="Left" MarginLeft="10" Text="@ActiveOrderText"/>
+								<ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="30" VerticalAlignment="Top"  Brush='ButtonBrush2' MarginLeft="10" HorizontalAlignment="Left" Command.Click='OpenOrderQueue'>
+								  <Children>
+									<TextWidget WidthSizePolicy='StretchToParent' HeightSizePolicy='StretchToParent' Brush='Kingdom.GeneralButtons.Text' Text='@SetPartyTemplateText' />
+								  </Children>
+								</ButtonWidget>
+							</Children>
+						</ListPanel>
+						<ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="30" HorizontalAlignment="Center" VerticalAlignment="Top" MarginTop="10" StackLayout.LayoutMethod="HorizontalLeftToRight">
+							<Children>
+								<TextWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="Fixed" SuggestedWidth="300" DoNotAcceptEvents="true" Brush="Clan.Stat.Name.Text" VerticalAlignment="Top" HorizontalAlignment="Left" MarginLeft="10" Text="@SelectedTemplateText"/>
+								<ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="30" VerticalAlignment="Top"  Brush='ButtonBrush2' MarginLeft="10" HorizontalAlignment="Left" Command.Click='EditPartyTemplate'>
+								  <Children>
+									<TextWidget WidthSizePolicy='StretchToParent' HeightSizePolicy='StretchToParent' Brush='Kingdom.GeneralButtons.Text' Text='@SetPartyTemplateText' />
+								  </Children>
+								</ButtonWidget>
+							</Children>
+						</ListPanel>
+						
+						<ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="30" HorizontalAlignment="Center" VerticalAlignment="Top" MarginLeft="5" MarginTop="10" StackLayout.LayoutMethod="HorizontalLeftToRight">
+							<Children>
+								<ButtonWidget DoNotPassEventsToChildren='true' WidthSizePolicy='Fixed' HeightSizePolicy='StretchToParent' SuggestedWidth="50" MarginLeft="20" HorizontalAlignment="Left" Brush='ButtonBrush2' VerticalAlignment="Top" UpdateChildrenStates='true' Command.Click='CopyTo'>
+									<Children>
+										<TextWidget WidthSizePolicy='StretchToParent' HeightSizePolicy='StretchToParent' Brush='Kingdom.GeneralButtons.Text' Text='@CopyToText' />
+									</Children>
+								</ButtonWidget>
+							
+								<ButtonWidget DoNotPassEventsToChildren='true' WidthSizePolicy='Fixed' HeightSizePolicy='StretchToParent' SuggestedWidth="50" MarginLeft="95" MarginRight="35" Brush='ButtonBrush2' VerticalAlignment="Top" UpdateChildrenStates='true' Command.Click='CreatePartyTemplate'>
+									<Children>
+										<TextWidget WidthSizePolicy='StretchToParent' HeightSizePolicy='StretchToParent' Brush='Kingdom.GeneralButtons.Text' Text='@CreatePartyTemplateText' />
+									</Children>
+								</ButtonWidget>
+
+								<ButtonWidget DoNotPassEventsToChildren='true' WidthSizePolicy='Fixed' HeightSizePolicy='StretchToParent' SuggestedWidth="30" MarginRight="35" Brush='ButtonBrush2' VerticalAlignment="Top" UpdateChildrenStates='true' Command.Click='ViewPartyTemplate'>
+									<Children>
+										<TextWidget WidthSizePolicy='StretchToParent' HeightSizePolicy='StretchToParent' Brush='Kingdom.GeneralButtons.Text' Text='@ViewPartyTemplateText' />
+									</Children>
+								</ButtonWidget>
+								<ButtonWidget DoNotPassEventsToChildren='true' WidthSizePolicy='Fixed' HeightSizePolicy='StretchToParent' SuggestedWidth="30" MarginRight="35" Brush='ButtonBrush2' VerticalAlignment="Top" UpdateChildrenStates='true' Command.Click='DeletePartyTemplate'>
+									<Children>
+										<TextWidget WidthSizePolicy='StretchToParent' HeightSizePolicy='StretchToParent' Brush='Kingdom.GeneralButtons.Text' Text='@DeletePartyTemplateText' />
+									</Children>
+								</ButtonWidget>
+							</Children>
+						</ListPanel>
+					</Children>
+				</ListPanel>
+				
+				<!-- Party Composition Targets -->
+				<PartyAICompositionDisplay Parameter.DataSource="{PartyComposition}" HeightSizePolicy="Fixed" SuggestedHeight="50" WidthSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Bottom" MarginLeft="0" MarginBottom="-25" />
+				<ButtonWidget DoNotPassEventsToChildren='true' WidthSizePolicy='Fixed' HeightSizePolicy='Fixed' SuggestedWidth='180' SuggestedHeight='30' MarginLeft="125" MarginBottom='30' Brush='ButtonBrush2' VerticalAlignment="Bottom" HorizontalAlignment='Left' UpdateChildrenStates='true' IsEnabled="true" Command.Click='EditPartyComposition'>
+					<Children>
+						<TextWidget WidthSizePolicy='StretchToParent' HeightSizePolicy='StretchToParent' Brush='Kingdom.GeneralButtons.Text' Text='@EditPartyCompositionText' />
+					</Children>
+				</ButtonWidget>
+			</Children>
+		</Widget>
+		
+		<!-- Show/Hide Options -->
+		<ButtonWidget DoNotPassEventsToChildren='true' WidthSizePolicy='Fixed' HeightSizePolicy='Fixed' SuggestedWidth='30' SuggestedHeight='30' MarginRight='125' MarginTop="-3" Brush='ButtonBrush2' VerticalAlignment="Top" HorizontalAlignment='Right' UpdateChildrenStates='true' Command.Click='ToggleShowOptions'>
+			<Children>
+				<TextWidget WidthSizePolicy='StretchToParent' HeightSizePolicy='StretchToParent' Brush='Kingdom.GeneralButtons.Text' Text='@ToggleShowOptionsText' />
+			</Children>
+		</ButtonWidget>
+	</Children>
+</Widget>

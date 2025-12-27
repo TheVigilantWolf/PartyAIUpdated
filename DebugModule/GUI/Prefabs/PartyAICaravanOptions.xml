@@ -1,0 +1,89 @@
+<Prefab>
+  <Constants>
+  </Constants>
+  <Parameters>
+    <Parameter Name="DataSource" DefaultValue="" />
+  </Parameters>
+  <Window>
+	<Widget DataSource="*DataSource" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Center" VerticalAlignment="Center" Sprite="BlankWhiteSquare_9" Color="#000000FF" AlphaFactor="0.75">
+	  <Children>
+		<DimensionSyncWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="560" DimensionToSync="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" WidgetToCopyHeightFrom="SlidersWindowInnerPanel">
+		  <Children>
+			<Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+			  <Children>
+				<Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Center" VerticalAlignment="Top" Sprite="StdAssets\Popup\canvas" />
+			  </Children>
+			</Widget>
+			<ListPanel Id="SlidersWindowInnerPanel" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" StackLayout.LayoutMethod="VerticalBottomToTop" MarginLeft="15" MarginRight="15">
+			  <Children>
+				<ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" StackLayout.LayoutMethod="VerticalBottomToTop" MarginBottom="5">
+				  <Children>
+					<!--Title-->
+					<AutoHideRichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" MarginTop="10" Brush="Popup.Title.Text" MinHeight="50" Text="@TitleText" WidgetToHideIfEmpty="..\TitleDivider" />
+					<!--Divider-->
+					<Widget Id="TitleDivider" WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="23" Sprite="StdAssets\Popup\divider" />
+				  </Children>
+				</ListPanel>
+				
+				<!-- Max Troop Tier -->
+				<ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" StackLayout.LayoutMethod="HorizontalLeftToRight" MarginBottom="5" MarginLeft="13">
+					<Children>
+						<TextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Left" VerticalAlignment="Bottom" Brush="Clan.Stat.Name.Text" Text="@MaxTroopTierText">
+							<Children>
+								<HintWidget DataSource="{MaxTroopTierHint}" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" IsDisabled="false" />
+							</Children>
+						</TextWidget>
+						<PartyAIDropdown Parameter.DataSource="{MaxTroopTierDropdown}" WidthSizePolicy="Fixed" SuggestedWidth="45" UpdateChildrenStates='true' MarginLeft="25" VerticalAlignment="Center" />
+					</Children>
+				</ListPanel>
+				
+				<!-- Filter Settlements -->
+				<ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" StackLayout.LayoutMethod="HorizontalLeftToRight">
+					<Children>
+						<!-- Filter Settlements Toggle -->
+						<PartyAIOptionToggle Parameter.DataSource="{FilterSettlementsToggle}" />
+					
+						<!-- Filter Settlements Label -->
+						<TextWidget WidthSizePolicy="Fixed" HeightSizePolicy="CoverChildren" SuggestedWidth="105" Brush="Clan.Stat.Name.Text" VerticalAlignment="Center" MarginTop="2" Brush.TextHorizontalAlignment="Right" Text="@FilterSettlementsText" />
+						
+						<!-- Filtered Settlements Count -->
+						<TextWidget WidthSizePolicy="Fixed" HeightSizePolicy="CoverChildren" SuggestedWidth="30" MarginLeft="-3" MarginTop="2" Brush="Clan.Stat.Name.Text" VerticalAlignment="Center" Brush.TextHorizontalAlignment="Left" Text="@FilteredSettlementsCount">
+							<Children>
+								<HintWidget DataSource="{FilteredSettlementsCountHint}" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" IsDisabled="false" />
+							</Children>
+						</TextWidget>
+						
+						<!-- Edit Filtered Settlements -->
+						<ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="30" SuggestedHeight="30" VerticalAlignment="Center" MarginLeft="8" UpdateChildrenStates="true" Command.Click='EditFilteredSettlements'>
+						  <Children>
+							<BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="34" SuggestedHeight="34" HorizontalAlignment="Right" VerticalAlignment="Center" Brush="PartyAI.Menu.EditButton" />
+						  </Children>
+						</ButtonWidget>
+					</Children>
+				</ListPanel>
+
+				<ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" MarginTop="20" StackLayout.LayoutMethod="HorizontalLeftToRight">
+				  <Children>
+					<ToggleButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="251" SuggestedHeight="64" HorizontalAlignment="Right" VerticalAlignment="Center" Brush="Popup.Cancel.Button" Command.Click="CancelEditPartyOptions" GamepadNavigationIndex="0">
+					  <Children>
+						<TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@CancelText" MarginLeft="40" MarginRight="40"/>
+					  </Children>
+					</ToggleButtonWidget>
+					<ToggleButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="251" SuggestedHeight="64" HorizontalAlignment="Right" VerticalAlignment="Center" Brush="Popup.Done.Button" Command.Click="AcceptEditPartyOptions" GamepadNavigationIndex="1">
+					  <Children>
+						<TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@AcceptText" MarginLeft="40" MarginRight="40"/>
+					  </Children>
+					</ToggleButtonWidget>
+				  </Children>
+				</ListPanel>
+			  </Children>
+			</ListPanel>
+			<!--Frame Border-->
+			<BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Frame" IsEnabled="false" />
+
+		  </Children>
+		</DimensionSyncWidget>
+	  </Children>
+	</Widget>
+  </Window>
+</Prefab>

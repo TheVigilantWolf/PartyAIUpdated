@@ -1,0 +1,5 @@
+<ButtonWidget WidthSizePolicy='Fixed' HeightSizePolicy='Fixed' SuggestedHeight='40' SuggestedWidth="120" Brush='ButtonBrush2' HorizontalAlignment='Right' MarginTop="20" MarginRight="20" DoNotPassEventsToChildren="true" UpdateChildrenStates='true' IsVisible="@IsSelectAllVisible" Command.Click='SelectAll'>
+	<Children>
+		<TextWidget WidthSizePolicy='CoverChildren' HeightSizePolicy='StretchToParent' HorizontalAlignment="Center" Brush='Popup.Button.Text' Text='@SelectAllText' />
+	</Children>
+</ButtonWidget>

@@ -1,0 +1,216 @@
+<Prefab>
+  <Constants>
+  </Constants>
+  <Parameters>
+    <Parameter Name="DataSource" DefaultValue="" />
+  </Parameters>
+  <Window>
+	<Widget DataSource="*DataSource" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Center" VerticalAlignment="Center" Sprite="BlankWhiteSquare_9" Color="#000000FF" AlphaFactor="0.75">
+	  <Children>
+		<DimensionSyncWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="560" DimensionToSync="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" WidgetToCopyHeightFrom="SlidersWindowInnerPanel">
+		  <Children>
+			<Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+			  <Children>
+				<Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Center" VerticalAlignment="Top" Sprite="StdAssets\Popup\canvas" />
+			  </Children>
+			</Widget>
+			<ListPanel Id="SlidersWindowInnerPanel" WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" StackLayout.LayoutMethod="VerticalBottomToTop" MarginLeft="15" MarginRight="15">
+			  <Children>
+				<ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" StackLayout.LayoutMethod="VerticalBottomToTop" MarginBottom="5">
+				  <Children>
+					<!--Title-->
+					<AutoHideRichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" MarginTop="10" Brush="Popup.Title.Text" MinHeight="50" Text="@SlidersTitleText" WidgetToHideIfEmpty="..\TitleDivider" />
+					<!--Divider-->
+					<Widget Id="TitleDivider" WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="23" Sprite="StdAssets\Popup\divider" />
+				  </Children>
+				</ListPanel>
+				
+				<!--Infantry-->
+				<Widget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" MarginTop="20">
+				  <Children>
+					<NavigationScopeTargeter ScopeID="OrderOfBattleFormationClassWeightScope" ScopeParent="..\." ScopeMovements="Horizontal" />
+
+					<ListPanel Id="Container" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center"  StackLayout.LayoutMethod="HorizontalLeftToRight">
+					  <Children>
+
+
+						<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="35" SuggestedHeight="35" VerticalAlignment="Center" Sprite="General\TroopTypeIcons\icon_troop_type_infantry" />
+						<SliderWidget Id="SliderWidget" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="338" SuggestedHeight="42" MarginLeft="35" HorizontalAlignment="Center" VerticalAlignment="Bottom" Filler="Filler" Handle="SliderHandle" Locked="@IsInfantryLocked" MaxValueInt="100" MinValueInt="0" ValueInt="@InfantryInt">
+						  <Children>
+							<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="362" SuggestedHeight="38" HorizontalAlignment="Center" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_canvas" IsEnabled="false" />
+							<Widget Id="Filler" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_fill" ClipContents="true">
+							  <Children>
+								<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="345" SuggestedHeight="35" HorizontalAlignment="Left" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_fill" />
+							  </Children>
+							</Widget>
+							<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="400" SuggestedHeight="65" HorizontalAlignment="Center" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_frame" IsEnabled="false" />
+							<ImageWidget Id="SliderHandle" DoNotAcceptEvents="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="14" SuggestedHeight="38" HorizontalAlignment="Left" VerticalAlignment="Center" Brush="SPOptions.Slider.Handle" GamepadNavigationIndex="0"/>
+						  </Children>
+						</SliderWidget>
+
+						<RichTextWidget WidthSizePolicy="Fixed" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" Brush="Popup.Description.Text" MaxHeight="35" MinHeight="35" SuggestedWidth="50" MarginLeft="30" Text="@InfantryPercentage" />
+
+						<!-- Lock Toggle -->
+						<ButtonWidget DoNotPassEventsToChildren="true" UpdateChildrenStates="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="40" SuggestedHeight="40" MarginRight="25" ButtonType="Toggle" IsSelected="@IsInfantryLocked" GamepadNavigationIndex="1">
+						  <Children>
+							<OrderOfBattleFormationClassLockBrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" LockedBrush="OrderOfBattle.Formation.Class.Locked" UnlockedBrush="OrderOfBattle.Formation.Class.Unlocked" IsLocked="@IsInfantryLocked" />
+							<HintWidget DataSource="{LockWeightHint}" DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+						  </Children>
+						</ButtonWidget>
+
+					  </Children>
+					</ListPanel>
+
+					<TutorialHighlightItemBrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="TutorialHighlightBrush" IsHighlightEnabled="@IsWeightHighlightActive" IsVisible="false" />
+
+				  </Children>
+				</Widget>
+				
+				<!--Ranged-->
+				<Widget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" MarginTop="20">
+				  <Children>
+					<NavigationScopeTargeter ScopeID="OrderOfBattleFormationClassWeightScope" ScopeParent="..\." ScopeMovements="Horizontal" />
+
+					<ListPanel Id="Container" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center"  StackLayout.LayoutMethod="HorizontalLeftToRight">
+					  <Children>
+
+
+						<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="35" SuggestedHeight="35" VerticalAlignment="Center" Sprite="General\TroopTypeIcons\icon_troop_type_bow" />
+						<SliderWidget Id="SliderWidget" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="338" SuggestedHeight="42" MarginLeft="35" HorizontalAlignment="Center" VerticalAlignment="Bottom" Filler="Filler" Handle="SliderHandle" Locked="@IsRangedLocked" MaxValueInt="100" MinValueInt="0" ValueInt="@RangedInt">
+						  <Children>
+							<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="362" SuggestedHeight="38" HorizontalAlignment="Center" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_canvas" IsEnabled="false" />
+							<Widget Id="Filler" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_fill" ClipContents="true">
+							  <Children>
+								<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="345" SuggestedHeight="35" HorizontalAlignment="Left" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_fill" />
+							  </Children>
+							</Widget>
+							<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="400" SuggestedHeight="65" HorizontalAlignment="Center" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_frame" IsEnabled="false" />
+							<ImageWidget Id="SliderHandle" DoNotAcceptEvents="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="14" SuggestedHeight="38" HorizontalAlignment="Left" VerticalAlignment="Center" Brush="SPOptions.Slider.Handle" GamepadNavigationIndex="0"/>
+						  </Children>
+						</SliderWidget>
+
+						<RichTextWidget WidthSizePolicy="Fixed" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" Brush="Popup.Description.Text" MaxHeight="35" MinHeight="35" SuggestedWidth="50" MarginLeft="30" Text="@RangedPercentage" />
+
+						<!-- Lock Toggle -->
+						<ButtonWidget DoNotPassEventsToChildren="true" UpdateChildrenStates="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="40" SuggestedHeight="40" MarginRight="25" ButtonType="Toggle" IsSelected="@IsRangedLocked" GamepadNavigationIndex="1">
+						  <Children>
+							<OrderOfBattleFormationClassLockBrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" LockedBrush="OrderOfBattle.Formation.Class.Locked" UnlockedBrush="OrderOfBattle.Formation.Class.Unlocked" IsLocked="@IsRangedLocked" />
+							<HintWidget DataSource="{LockWeightHint}" DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+						  </Children>
+						</ButtonWidget>
+
+					  </Children>
+					</ListPanel>
+
+					<TutorialHighlightItemBrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="TutorialHighlightBrush" IsHighlightEnabled="@IsWeightHighlightActive" IsVisible="false" />
+
+				  </Children>
+				</Widget>
+				
+				<!--Cavalry-->
+				<Widget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" MarginTop="20">
+				  <Children>
+					<NavigationScopeTargeter ScopeID="OrderOfBattleFormationClassWeightScope" ScopeParent="..\." ScopeMovements="Horizontal" />
+
+					<ListPanel Id="Container" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center"  StackLayout.LayoutMethod="HorizontalLeftToRight">
+					  <Children>
+
+
+						<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="35" SuggestedHeight="35" VerticalAlignment="Center" Sprite="General\TroopTypeIcons\icon_troop_type_cavalry" />
+						<SliderWidget Id="SliderWidget" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="338" SuggestedHeight="42" MarginLeft="35" HorizontalAlignment="Center" VerticalAlignment="Bottom" Filler="Filler" Handle="SliderHandle" Locked="@IsCavalryLocked" MaxValueInt="100" MinValueInt="0" ValueInt="@CavalryInt">
+						  <Children>
+							<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="362" SuggestedHeight="38" HorizontalAlignment="Center" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_canvas" IsEnabled="false" />
+							<Widget Id="Filler" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_fill" ClipContents="true">
+							  <Children>
+								<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="345" SuggestedHeight="35" HorizontalAlignment="Left" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_fill" />
+							  </Children>
+							</Widget>
+							<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="400" SuggestedHeight="65" HorizontalAlignment="Center" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_frame" IsEnabled="false" />
+							<ImageWidget Id="SliderHandle" DoNotAcceptEvents="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="14" SuggestedHeight="38" HorizontalAlignment="Left" VerticalAlignment="Center" Brush="SPOptions.Slider.Handle" GamepadNavigationIndex="0"/>
+						  </Children>
+						</SliderWidget>
+
+						<RichTextWidget WidthSizePolicy="Fixed" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" Brush="Popup.Description.Text" MaxHeight="35" MinHeight="35" SuggestedWidth="50" MarginLeft="30" Text="@CavalryPercentage" />
+
+						<!-- Lock Toggle -->
+						<ButtonWidget DoNotPassEventsToChildren="true" UpdateChildrenStates="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="40" SuggestedHeight="40" MarginRight="25" ButtonType="Toggle" IsSelected="@IsCavalryLocked" GamepadNavigationIndex="1">
+						  <Children>
+							<OrderOfBattleFormationClassLockBrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" LockedBrush="OrderOfBattle.Formation.Class.Locked" UnlockedBrush="OrderOfBattle.Formation.Class.Unlocked" IsLocked="@IsCavalryLocked" />
+							<HintWidget DataSource="{LockWeightHint}" DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+						  </Children>
+						</ButtonWidget>
+
+					  </Children>
+					</ListPanel>
+
+					<TutorialHighlightItemBrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="TutorialHighlightBrush" IsHighlightEnabled="@IsWeightHighlightActive" IsVisible="false" />
+
+				  </Children>
+				</Widget>
+				
+				<!--Horse Archer-->
+				<Widget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" MarginTop="20">
+				  <Children>
+					<NavigationScopeTargeter ScopeID="OrderOfBattleFormationClassWeightScope" ScopeParent="..\." ScopeMovements="Horizontal" />
+
+					<ListPanel Id="Container" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center"  StackLayout.LayoutMethod="HorizontalLeftToRight">
+					  <Children>
+
+
+						<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="35" SuggestedHeight="35" VerticalAlignment="Center" Sprite="General\TroopTypeIcons\icon_troop_type_horse_archer" />
+						<SliderWidget Id="SliderWidget" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="338" SuggestedHeight="42" MarginLeft="35" HorizontalAlignment="Center" VerticalAlignment="Bottom" Filler="Filler" Handle="SliderHandle" Locked="@IsHorseArcherLocked" MaxValueInt="100" MinValueInt="0" ValueInt="@HorseArcherInt">
+						  <Children>
+							<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="362" SuggestedHeight="38" HorizontalAlignment="Center" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_canvas" IsEnabled="false" />
+							<Widget Id="Filler" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_fill" ClipContents="true">
+							  <Children>
+								<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="345" SuggestedHeight="35" HorizontalAlignment="Left" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_fill" />
+							  </Children>
+							</Widget>
+							<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="400" SuggestedHeight="65" HorizontalAlignment="Center" VerticalAlignment="Center" Sprite="SPGeneral\SPOptions\standart_slider_frame" IsEnabled="false" />
+							<ImageWidget Id="SliderHandle" DoNotAcceptEvents="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="14" SuggestedHeight="38" HorizontalAlignment="Left" VerticalAlignment="Center" Brush="SPOptions.Slider.Handle" GamepadNavigationIndex="0"/>
+						  </Children>
+						</SliderWidget>
+
+						<RichTextWidget WidthSizePolicy="Fixed" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" Brush="Popup.Description.Text" MaxHeight="35" MinHeight="35" SuggestedWidth="50" MarginLeft="30" Text="@HorseArcherPercentage" />
+
+						<!-- Lock Toggle -->
+						<ButtonWidget DoNotPassEventsToChildren="true" UpdateChildrenStates="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="40" SuggestedHeight="40" MarginRight="25" ButtonType="Toggle" IsSelected="@IsHorseArcherLocked" GamepadNavigationIndex="1">
+						  <Children>
+							<OrderOfBattleFormationClassLockBrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" LockedBrush="OrderOfBattle.Formation.Class.Locked" UnlockedBrush="OrderOfBattle.Formation.Class.Unlocked" IsLocked="@IsHorseArcherLocked" />
+							<HintWidget DataSource="{LockWeightHint}" DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+						  </Children>
+						</ButtonWidget>
+
+					  </Children>
+					</ListPanel>
+
+					<TutorialHighlightItemBrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="TutorialHighlightBrush" IsHighlightEnabled="@IsWeightHighlightActive" IsVisible="false" />
+
+				  </Children>
+				</Widget>
+
+				<ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" MarginTop="20" StackLayout.LayoutMethod="HorizontalLeftToRight">
+				  <Children>
+					<ToggleButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="251" SuggestedHeight="64" HorizontalAlignment="Right" VerticalAlignment="Center" Brush="Popup.Cancel.Button" Command.Click="CancelEditPartyComposition" GamepadNavigationIndex="0">
+					  <Children>
+						<TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@CancelText" MarginLeft="40" MarginRight="40"/>
+					  </Children>
+					</ToggleButtonWidget>
+					<ToggleButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="251" SuggestedHeight="64" HorizontalAlignment="Right" VerticalAlignment="Center" Brush="Popup.Done.Button" Command.Click="AcceptEditPartyComposition" GamepadNavigationIndex="1">
+					  <Children>
+						<TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@AcceptText" MarginLeft="40" MarginRight="40"/>
+					  </Children>
+					</ToggleButtonWidget>
+				  </Children>
+				</ListPanel>
+			  </Children>
+			</ListPanel>
+			<!--Frame Border-->
+			<BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Frame" IsEnabled="false" />
+
+		  </Children>
+		</DimensionSyncWidget>
+	  </Children>
+	</Widget>
+  </Window>
+</Prefab>

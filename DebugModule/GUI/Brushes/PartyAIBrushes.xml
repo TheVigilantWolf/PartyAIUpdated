@@ -1,0 +1,137 @@
+<Brushes>
+  <Brush Name="PartyAI.Menu.PartyRowText" Font="FiraSansExtraCondensed-Regular" TextHorizontalAlignment="Left" TextVerticalAlignment="Bottom">
+    <Styles>
+      <Style Name="Default" FontColor="#F4E1C4FF" TextOutlineAmount="0" TextGlowRadius="0" TextBlur="0" TextShadowOffset="0" TextShadowAngle="60" FontSize="30" />
+    </Styles>
+  </Brush>
+
+  <Brush Name="PartyAI.Menu.EditButton">
+    <Layers>
+      <BrushLayer Name="Default" Sprite="Clan\edit_name_icon" Color="#BE945BFF" IsHidden="true" />
+    </Layers>
+    <Styles>
+      <Style Name="Default">
+        <BrushLayer Name="Default" IsHidden="false" />
+      </Style>
+      <Style Name="Hovered">
+        <BrushLayer Name="Default" ColorFactor="1.3" IsHidden="false" />
+      </Style>
+      <Style Name="Pressed">
+        <BrushLayer Name="Default" ColorFactor="0.8" IsHidden="false" />
+      </Style>
+      <Style Name="Disabled">
+        <BrushLayer Name="Default" ColorFactor="0.5" IsHidden="false" />
+      </Style>
+    </Styles>
+  </Brush>
+
+  <Brush Name="PartyAI.Menu.UpArrow">
+    <Layers>
+      <BrushLayer Name="Default" Sprite="PartyScreen\upgrade_icon" IsHidden="true" />
+      <BrushLayer Name="Disabled" Sprite="PartyScreen\upgrade_icon" IsHidden="true" />
+    </Layers>
+    <Styles>
+      <Style Name="Default">
+        <BrushLayer Name="Default" ColorFactor="1" IsHidden="false" />
+      </Style>
+      <Style Name="Hovered">
+        <BrushLayer Name="Default" ColorFactor="1.5" IsHidden="false" />
+      </Style>
+      <Style Name="Selected">
+        <BrushLayer Name="Default" ColorFactor="1" IsHidden="false" />
+      </Style>
+      <Style Name="Disabled">
+        <BrushLayer Name="Disabled" IsHidden="false" />
+      </Style>
+    </Styles>
+    <SoundProperties>
+      <StateSounds>
+      </StateSounds>
+      <EventSounds>
+        <EventSound EventName="Click" Audio="checkbox" />
+      </EventSounds>
+    </SoundProperties>
+  </Brush>
+
+  <Brush Name="PartyAI.Menu.DownArrow">
+    <Layers>
+      <BrushLayer Name="Default" Sprite="PartyScreen\upgrade_icon" VerticalFlip="true" IsHidden="true" />
+      <BrushLayer Name="Disabled" Sprite="PartyScreen\upgrade_icon" VerticalFlip="true" IsHidden="true" />
+    </Layers>
+    <Styles>
+      <Style Name="Default">
+        <BrushLayer Name="Default" ColorFactor="1" IsHidden="false" VerticalFlip="true" />
+      </Style>
+      <Style Name="Hovered">
+        <BrushLayer Name="Default" ColorFactor="1.5" IsHidden="false" VerticalFlip="true" />
+      </Style>
+      <Style Name="Selected">
+        <BrushLayer Name="Default" ColorFactor="1" IsHidden="false" VerticalFlip="true" />
+      </Style>
+      <Style Name="Disabled">
+        <BrushLayer Name="Disabled" IsHidden="false" VerticalFlip="true" />
+      </Style>
+    </Styles>
+    <SoundProperties>
+      <StateSounds>
+      </StateSounds>
+      <EventSounds>
+        <EventSound EventName="Click" Audio="checkbox" />
+      </EventSounds>
+    </SoundProperties>
+  </Brush>
+  
+  <Brush Name="PartyAI.Menu.CopyButton" TransitionDuration="0.2">
+    <Layers>
+      <BrushLayer Name="Default" Sprite="MPLobby\Generic\copy_icon" Color="#FEC157FF"/>
+    </Layers>
+    <Styles>
+      <Style Name="Default">
+        <BrushLayer Name="Default" Sprite="MPLobby\Generic\copy_icon" ColorFactor="1"/>
+      </Style>
+      <Style Name="Hovered">
+        <BrushLayer Name="Default" Sprite="MPLobby\Generic\copy_icon" ColorFactor="1.3"/>
+      </Style>
+      <Style Name="Pressed">
+        <BrushLayer Name="Default" Sprite="MPLobby\Generic\copy_icon" ColorFactor="0.8"/>
+      </Style>
+      <Style Name="Disabled">
+        <BrushLayer Name="Default" Sprite="MPLobby\Generic\copy_icon" ColorFactor="0.5"/>
+      </Style>
+    </Styles>
+    <SoundProperties>
+      <StateSounds>
+      </StateSounds>
+      <EventSounds>
+        <EventSound EventName="Click" Audio="checkbox" />
+      </EventSounds>
+    </SoundProperties>
+  </Brush>
+  
+  <Brush Name="PartyAI.Menu.PasteButton" TransitionDuration="0.2">
+    <Layers>
+      <BrushLayer Name="Default" Sprite="SPPerks\CuriousSmelter" Color="#FEC157FF"/>
+    </Layers>
+    <Styles>
+      <Style Name="Default">
+        <BrushLayer Name="Default" Sprite="SPPerks\CuriousSmelter" ColorFactor="1"/>
+      </Style>
+      <Style Name="Hovered">
+        <BrushLayer Name="Default" Sprite="SPPerks\CuriousSmelter" ColorFactor="1.3"/>
+      </Style>
+      <Style Name="Pressed">
+        <BrushLayer Name="Default" Sprite="SPPerks\CuriousSmelter" ColorFactor="0.8"/>
+      </Style>
+      <Style Name="Disabled">
+        <BrushLayer Name="Default" Sprite="SPPerks\CuriousSmelter" ColorFactor="0.5"/>
+      </Style>
+    </Styles>
+    <SoundProperties>
+      <StateSounds>
+      </StateSounds>
+      <EventSounds>
+        <EventSound EventName="Click" Audio="checkbox" />
+      </EventSounds>
+    </SoundProperties>
+  </Brush>
+</Brushes>

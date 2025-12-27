@@ -1,0 +1,20 @@
+<Prefab>
+  <Constants>
+  </Constants>
+  <Parameters>
+    <Parameter Name="DataSource" DefaultValue="" />
+  </Parameters>
+  <Window>
+	<Widget DataSource="*DataSource" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" MarginTop="10">
+		<Children>
+			<HintWidget DataSource="{Hint}" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" IsDisabled="false" />
+			<ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="40" SuggestedHeight="40" MarginTop="-6" HorizontalAlignment="Left" VerticalAlignment="Top" MarginLeft="10" Brush="SPOptions.Checkbox.Empty.Button" ButtonType="Toggle" IsDisabled="@IsDisabled" IsSelected="@IsSelected" ToggleIndicator="ToggleIndicator" UpdateChildrenStates="true" GamepadNavigationIndex="0">
+				<Children>
+					<ImageWidget Id="ToggleIndicator" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="SPOptions.Checkbox.Full.Button" />
+				</Children>
+			</ButtonWidget>
+			<TextWidget DoNotAcceptEvents="true" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Left" VerticalAlignment="Top" MarginLeft="52" Brush="Clan.Stat.Name.Text" Text="@Text"/>
+		</Children>
+	</Widget>
+  </Window>
+</Prefab>
