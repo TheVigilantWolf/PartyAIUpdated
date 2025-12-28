@@ -67,7 +67,14 @@ namespace PartyAIControls.ViewModels.Components
 
     public void EditModifierKey()
     {
-      InputKey[] keys = new InputKey[] { InputKey.LeftShift, InputKey.RightShift, InputKey.LeftAlt, InputKey.RightAlt, InputKey.LeftControl, InputKey.RightControl, InputKey.Invalid };
+      // Simply copied what was above so that all hotkeys are available for both the modifier and not modifier keys.
+      // Nothing major but very nice for rebinding on a controller.
+      List<InputKey> keys = Enum.GetValues(typeof(InputKey)).Cast<InputKey>().ToList().Where(k => ((int)k >= 12 && (int)k <= 88) || (int)k >= 227).ToList();
+      keys.Add(InputKey.RightAlt);
+      keys.Add(InputKey.RightShift);
+      keys.Add(InputKey.RightControl);
+      keys.Add(InputKey.Invalid);
+
       SelectKey(keys.ToList(), (InputKey result) =>
       {
         ModifierKey = result;

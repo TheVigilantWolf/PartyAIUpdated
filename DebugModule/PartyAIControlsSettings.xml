@@ -1,7 +1,0 @@
-<PartyAIControlsSettings>
-	  <Setting id="controlPanelModiferKey" value="ControllerRBumper" />
-	  <Setting id="controlPanelKey" value="ControllerRUp" />
-	  <Setting id="commandedPartiesModiferKey" value="LeftAlt" />
-      <Setting id="commandedPartiesKey" value="X" />
-      <Setting id="commandPartiesKey" value="LeftAlt" />
-</PartyAIControlsSettings>

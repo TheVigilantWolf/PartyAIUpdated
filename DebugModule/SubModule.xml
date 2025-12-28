@@ -1,5 +1,5 @@
 ﻿<Module>
-  <Name value="Party AI Controls"/>
+  <Name value="Party AI Controls Rebinds"/>
   <Id value="PartyAIControls"/>
   <Version value="v1.3.11.1"/>
   <SingleplayerModule value="true"/>
@@ -16,7 +16,7 @@
   <SubModules>
     <SubModule>
       <Name value="PartyAIControls"/>
-      <DLLName value="PartyAIUpdatedRebinds.dll"/>
+      <DLLName value="PartyAIUpdated.dll"/>
       <SubModuleClassType value="PartyAIControls.SubModule"/>
       <Tags>
         <Tag key="DedicatedServerType" value="none" />
