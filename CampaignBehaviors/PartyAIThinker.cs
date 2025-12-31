@@ -876,24 +876,7 @@ namespace PartyAIControls.CampaignBehaviors
         private void ImplementPatrolClanLands(Hero hero, MobileParty party, IMapPoint target, in PartyThinkParams thinkParams, out List<(AIBehaviorData, float)> newParams, float distanceFactor = 1.0f, bool useQuickDistance = false)
         {
             newParams = new List<(AIBehaviorData, float)>();
-
-            // Validate NavigationType before dictionary lookup to prevent KeyNotFoundException
-            var safeNavType = party.DesiredAiNavigationType;
-            if (safeNavType == MobileParty.NavigationType.None || !Enum.IsDefined(typeof(MobileParty.NavigationType), safeNavType))
-            {
-                safeNavType = MobileParty.NavigationType.Default;
-            }
-
-            float range;
-            try
-            {
-                range = Campaign.Current.GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(safeNavType) * 0.9f * distanceFactor;
-            }
-            catch (KeyNotFoundException)
-            {
-                // Fallback for nav types not in cache (e.g., War Sails DLC not installed)
-                range = Campaign.Current.GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(MobileParty.NavigationType.Default) * 0.9f * distanceFactor;
-            }
+            float range = Campaign.Current.GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(party.DesiredAiNavigationType) * 0.9f * distanceFactor;
 
             if (hero?.Clan?.Settlements?.Count == 0)
             {
@@ -910,7 +893,7 @@ namespace PartyAIControls.CampaignBehaviors
                     s => (s.IsTown || s.IsVillage) &&
                          (s.MapFaction == party.MapFaction ||
                           FactionManager.IsNeutralWithFaction(party.MapFaction, s.MapFaction)),
-                    safeNavType
+                    party.DesiredAiNavigationType
                 );
 
                 if (town != null && TryGetBestNavigationDataForSettlement(party, town, out MobileParty.NavigationType townNavType, out bool townIsFromPort, out bool townIsTargetingPort))
@@ -1030,13 +1013,6 @@ namespace PartyAIControls.CampaignBehaviors
         {
             newParams = new List<(AIBehaviorData, float)>();
 
-            // Validate NavigationType before dictionary lookup to prevent KeyNotFoundException
-            var safeNavType = party.DesiredAiNavigationType;
-            if (safeNavType == MobileParty.NavigationType.None || !Enum.IsDefined(typeof(MobileParty.NavigationType), safeNavType))
-            {
-                safeNavType = MobileParty.NavigationType.Default;
-            }
-
             Settlement centerSettlement = (Settlement)target;
 
             // Range is a filtering/"too far" heuristic; navigation routing uses vanilla-derived data.
@@ -1065,7 +1041,7 @@ namespace PartyAIControls.CampaignBehaviors
                     s => (s.IsTown || s.IsVillage) &&
                          (s.MapFaction == party.MapFaction ||
                           FactionManager.IsNeutralWithFaction(party.MapFaction, s.MapFaction)),
-                    safeNavType
+                    party.DesiredAiNavigationType
                 );
 
                 if (town != null && TryGetBestNavigationDataForSettlement(party, town, out MobileParty.NavigationType townNavType, out bool townIsFromPort, out bool townIsTargetingPort))
