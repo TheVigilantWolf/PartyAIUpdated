@@ -741,6 +741,65 @@ namespace PartyAIControls.CampaignBehaviors
         return;
       }
 
+      // === THREAT CHECK: Yield to vanilla AI if enemies nearby ===
+      // Uses vanilla detection radius (3x encounter joining radius) and strength comparison
+      float encounterRadius = Campaign.Current.Models.EncounterModel.GetEncounterJoiningRadius;
+      float scanRadius = encounterRadius * 3f;
+
+      try
+      {
+        LocatableSearchData<MobileParty> scan = MobileParty.StartFindingLocatablesAroundPosition(
+            party.Position.ToVec2(), 
+            scanRadius);
+
+        for (MobileParty enemy = MobileParty.FindNextLocatable(ref scan);
+             enemy != null;
+             enemy = MobileParty.FindNextLocatable(ref scan))
+        {
+            // Vanilla filters: skip self, inactive, in settlements (except garrisons), non-enemies
+            if (enemy == party || !enemy.IsActive || enemy.IsDisbanding)
+                continue;
+
+            if (enemy.CurrentSettlement != null && !enemy.IsGarrison)
+                continue;
+
+            if (!FactionManager.IsAtWarAgainstFaction(party.MapFaction, enemy.MapFaction))
+                continue;
+
+            if (enemy.Army != null && enemy.Army.LeaderParty != enemy && enemy.AttachedTo != null)
+                continue;
+
+            if (party.IsCurrentlyAtSea != enemy.IsCurrentlyAtSea)
+                continue;
+
+            // Vanilla strength comparison: flee if enemy is stronger
+            float myStrength = (party.Army == null || party.AttachedTo == null && party.Army.LeaderParty != party)
+                ? party.Party.EstimatedStrength
+                : party.Army.EstimatedStrength;
+
+            float enemyStrength = (enemy.Army == null || enemy.AttachedTo == null && enemy.Army.LeaderParty != enemy)
+                ? enemy.Party.EstimatedStrength
+                : enemy.Army.EstimatedStrength;
+
+            // Vanilla flee condition: enemy is stronger AND aggressive/garrison
+            if (myStrength < enemyStrength && (enemy.Aggressiveness > 0.01f || enemy.IsGarrison))
+            {
+                // Unlock AI - vanilla will handle flee behavior
+                if (party.Ai.DoNotMakeNewDecisions)
+                {
+                    party.Ai.SetDoNotMakeNewDecisions(false);
+                }
+                // Keep order active - party will resume recruiting once safe
+                return;
+            }
+        }
+      }
+      catch (KeyNotFoundException)
+      {
+        // LocatorGrid error - skip threat check this tick
+      }
+
+      // === MOD BEHAVIOR: Safe to continue recruiting ===
       if (settings.Order.Target is not Settlement currentTarget || party.CurrentSettlement == currentTarget)
       {
         IEnumerable<Settlement> settlements = Settlement.All.Where(s =>
@@ -772,31 +831,30 @@ namespace PartyAIControls.CampaignBehaviors
           _recentlyRecruitedFromSettlements.Add(new(currentTarget, CampaignTime.Now, party));
           settings.Order.Target = currentTarget;
         }
-      }
+    }
 
-      if (currentTarget == null)
-      {
+    if (currentTarget == null)
+    {
         if (party.Ai.DoNotMakeNewDecisions)
         {
-          party.Ai.SetDoNotMakeNewDecisions(false);
-          ResetPartyAi(party);
+            party.Ai.SetDoNotMakeNewDecisions(false);
+            ResetPartyAi(party);
         }
         return;
-      }
+    }
 
-      party.Ai.SetDoNotMakeNewDecisions(true);
+    // Safe to lock AI and navigate
+    party.Ai.SetDoNotMakeNewDecisions(true);
 
-      // Use ALL navigation for subsequent target selection when the party can use naval routes.
-      // AI parties can embark/disembark from shore without a port, so prefer allowing naval paths.
-      var navType = party.HasNavalNavigationCapability ? MobileParty.NavigationType.All : party.DesiredAiNavigationType;
-      party.DesiredAiNavigationType = navType;
+    var navType = party.HasNavalNavigationCapability ? MobileParty.NavigationType.All : party.DesiredAiNavigationType;
+    party.DesiredAiNavigationType = navType;
 
     SetPartyAiAction.GetActionForVisitingSettlement(
         party,
         currentTarget,
         navType,
-        false, // isFromPort
-        false  // isTargetingPort
+        false,
+        false
     );
         }
 
@@ -1083,7 +1141,7 @@ namespace PartyAIControls.CampaignBehaviors
                 {
                     newParams.Add((
                         new AIBehaviorData(town, AiBehavior.GoToSettlement, townNavType, false, townIsFromPort, townIsTargetingPort),
-                        2f
+                        10f
                     ));
                 }
                 return;
